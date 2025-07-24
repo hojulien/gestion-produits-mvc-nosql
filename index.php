@@ -23,4 +23,11 @@ $p1->setPrix(249.99);
 $repo->update($p1);
 test($p1);
 
+echo "<h1> Test de delete() </h1>";
+$repo->delete($p1->getId());
+$testAll = $repo->getProduits();
+foreach ($testAll as $item) {
+    test($item);
+}
+
 ?>

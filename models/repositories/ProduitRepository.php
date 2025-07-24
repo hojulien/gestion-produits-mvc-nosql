@@ -15,7 +15,7 @@ class ProduitRepository {
         $produits = [];
 
         foreach($result as $row) {
-            $produit = new Produit($row['_id'], $row['nom'], $row['description'], $row['prix']);;
+            $produit = new Produit($row['nom'], $row['description'], $row['prix'], $row['_id']);;
             $produits[] = $produit;
         }
 
@@ -65,6 +65,18 @@ class ProduitRepository {
                 ]
             ]
     );
-        return $result->isAcknowledged();
+        return $result->isAcknowledged() && $result->getModifiedCount() > 0;
+    }
+
+    public function delete(string $id): ?bool {
+        try {
+            $objectId = new MongoDB\BSON\ObjectId($id);
+        } catch (\Exception $e) {
+            return null;
+        }
+
+        $result = $this->collection->deleteOne(['_id' => $objectId]);
+
+        return $result->isAcknowledged() && $result->getDeletedCount() > 0;
     }
 }
