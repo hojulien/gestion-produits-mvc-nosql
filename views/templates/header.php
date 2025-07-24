@@ -6,12 +6,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-        <link href="./assets/output.css" rel="stylesheet">
+        <link href="./assets/styles/output.css" rel="stylesheet">
         <title>Gestion de produits</title>
     </head>
     <body>
         <header class="flex justify-start items-center p-6 bg-green-300 shadow-xl">
-            <h1 class="text-3xl text-blue-500 font-bold">test</h1>
+            <h1 class="text-3xl font-bold">test</h1>
         </header>
         <main>
-            <section class="min-h-screen">
+            <section class="min-h-screen mx-auto flex flex-col p-7 gap-7 bg-yellow-100">
