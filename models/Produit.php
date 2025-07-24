@@ -35,7 +35,7 @@ class Produit {
 
     // SETTERS
 
-    public function setId(int $id): void {
+    public function setId(string $id): void {
         $this->id = htmlspecialchars($id);
     }
 

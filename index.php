@@ -1,11 +1,32 @@
 <?php
 require 'vendor/autoload.php';
+require 'models/repositories/ProduitRepository.php';
 
-$client = new MongoDB\Client("mongodb://localhost:27017");
-$collection = $client->testdb->produits;
+$repo = new ProduitRepository();
 
-$cursor = $collection->find();
-foreach ($cursor as $document) {
-    echo $document["nom"] . "<br>" . $document["description"] . "<br>" .$document["prix"] . "<br>";
+function test(Produit|null $test) {
+    if ($test) {
+        echo $test->getNom() . "<br>" . $test->getDescription() . "<br>" . $test->getPrix() . "<br>";
+    } else {
+        echo "Erreur: ID non valide.<br>";
+    }
 }
+
+echo "<h1> Test de getProduits() </h1>";
+
+$testAll = $repo->getProduits();
+foreach ($testAll as $item){
+    test($item);
+}
+
+echo "<h1> Test de getProduit() </h1>";
+
+$test1 = $repo->getProduit("6881f054d01b74b659ed7a30");
+$test2 = $repo->getProduit("6881f054d01b74b659ed7a30");
+$testFail= $repo->getProduit("yes");
+
+test($test1);
+test($test2);
+test($testFail);
+
 ?>
