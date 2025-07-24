@@ -3,16 +3,16 @@
 require_once __DIR__ . '/../lib/database.php';
 
 class Produit {
-    private string $id;
+    private ?string $id;
     private string $nom;
     private string $description;
     private float $prix;
 
-    public function __construct(string $id, string $nom, string $desc, float $prix) {
-        $this->setId($id);
+    public function __construct(string $nom, string $desc, float $prix, ?string $id = null) {
         $this->setNom($nom);
         $this->setDescription($desc);
         $this->setPrix($prix);
+        $this->setId($id);
     }
 
     // GETTERS
@@ -35,7 +35,7 @@ class Produit {
 
     // SETTERS
 
-    public function setId(string $id): void {
+    public function setId(?string $id): void {
         $this->id = htmlspecialchars($id);
     }
 

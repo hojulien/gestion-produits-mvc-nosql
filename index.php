@@ -12,21 +12,15 @@ function test(Produit|null $test) {
     }
 }
 
-echo "<h1> Test de getProduits() </h1>";
+echo "<h1> Test de create() </h1>";
 
-$testAll = $repo->getProduits();
-foreach ($testAll as $item){
-    test($item);
-}
+$p1 = new Produit ('Console portable', 'Une console moderne pour jouer entre amis.', 299.99);
+$repo->create($p1);
+test($p1);
 
-echo "<h1> Test de getProduit() </h1>";
-
-$test1 = $repo->getProduit("6881f054d01b74b659ed7a30");
-$test2 = $repo->getProduit("6881f054d01b74b659ed7a30");
-$testFail= $repo->getProduit("yes");
-
-test($test1);
-test($test2);
-test($testFail);
+echo "<h1> Test de update() </h1>";
+$p1->setPrix(249.99);
+$repo->update($p1);
+test($p1);
 
 ?>
