@@ -20,7 +20,7 @@ class ProduitController {
         require_once __DIR__ . '/../views/home.php';
     }
 
-    public function view(int $id) {
+    public function view(string $id) {
         $produit = $this->produitRepo->getProduit($id);
         require_once __DIR__ . '/../views/view.php';
     }

@@ -12,13 +12,16 @@
     --color-red-300: oklch(80.8% 0.114 19.571);
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-red-800: oklch(44.4% 0.177 26.899);
     --color-orange-200: oklch(90.1% 0.076 70.697);
     --color-orange-300: oklch(83.7% 0.128 66.29);
+    --color-orange-800: oklch(47% 0.157 37.304);
     --color-yellow-50: oklch(98.7% 0.026 102.212);
     --color-yellow-100: oklch(97.3% 0.071 103.193);
     --color-yellow-200: oklch(94.5% 0.129 101.54);
     --color-yellow-300: oklch(90.5% 0.182 98.111);
     --color-yellow-400: oklch(85.2% 0.199 91.936);
+    --color-yellow-500: oklch(79.5% 0.184 86.047);
     --color-yellow-700: oklch(55.4% 0.135 66.442);
     --color-green-300: oklch(87.1% 0.15 154.449);
     --color-green-400: oklch(79.2% 0.209 151.711);
@@ -234,11 +237,26 @@
   .h-full {
     height: 100%;
   }
+  .h-max {
+    height: max-content;
+  }
   .max-h-16 {
     max-height: calc(var(--spacing) * 16);
   }
+  .max-h-18 {
+    max-height: calc(var(--spacing) * 18);
+  }
   .max-h-20 {
     max-height: calc(var(--spacing) * 20);
+  }
+  .max-h-\[128px\] {
+    max-height: 128px;
+  }
+  .max-h-\[200px\] {
+    max-height: 200px;
+  }
+  .min-h-18 {
+    min-height: calc(var(--spacing) * 18);
   }
   .min-h-screen {
     min-height: 100vh;
@@ -279,14 +297,29 @@
   .max-w-xl {
     max-width: var(--container-xl);
   }
+  .min-w-\[100px\] {
+    min-width: 100px;
+  }
   .min-w-\[150px\] {
     min-width: 150px;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-auto {
+    flex: auto;
+  }
+  .flex-initial {
+    flex: 0 auto;
   }
   .flex-shrink {
     flex-shrink: 1;
   }
   .flex-shrink-0 {
     flex-shrink: 0;
+  }
+  .flex-grow {
+    flex-grow: 1;
   }
   .table-fixed {
     table-layout: fixed;
@@ -333,6 +366,9 @@
   .gap-7 {
     gap: calc(var(--spacing) * 7);
   }
+  .self-stretch {
+    align-self: stretch;
+  }
   .overflow-x-auto {
     overflow-x: auto;
   }
@@ -373,6 +409,9 @@
   }
   .border-red-600 {
     border-color: var(--color-red-600);
+  }
+  .border-yellow-500 {
+    border-color: var(--color-yellow-500);
   }
   .bg-blue-200 {
     background-color: var(--color-blue-200);
@@ -449,8 +488,14 @@
   .text-blue-500 {
     color: var(--color-blue-500);
   }
+  .text-orange-800 {
+    color: var(--color-orange-800);
+  }
   .text-red-500 {
     color: var(--color-red-500);
+  }
+  .text-red-800 {
+    color: var(--color-red-800);
   }
   .ordinal {
     --tw-ordinal: ordinal;
