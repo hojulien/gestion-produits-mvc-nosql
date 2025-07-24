@@ -30,10 +30,10 @@ class ProduitController {
     }
 
     public function add() {
-        $produit = new Produit($_POST['nom'], $_POST['desc'], $_POST['prix']);
+        $produit = new Produit($_POST['nom'], $_POST['description'], $_POST['quantite'], $_POST['prix']);
         $this->produitRepo->create($produit);
 
-        redirect("?action=produit-list");
+        redirect("?action=home");
     }
 
     public function edit(string $id) {
@@ -43,16 +43,16 @@ class ProduitController {
 
     public function update() {
         $produitId = $_POST['id'];
-        $produit = new Produit($_POST['nom'], $_POST['desc'], $_POST['prix']);
+        $produit = new Produit($_POST['nom'], $_POST['description'], $_POST['quantite'], $_POST['prix']);
         $produit->setId($produitId);
         $this->produitRepo->update($produit);
 
-        redirect("?action=produit-list");
+        redirect("?action=home");
     }
 
     public function delete(string $id) {
         $this->produitRepo->delete($id);
 
-        redirect("?action=produit-list");
+        redirect("?action=home");
     }
 }

@@ -15,7 +15,7 @@ class ProduitRepository {
         $produits = [];
 
         foreach($result as $row) {
-            $produit = new Produit($row['nom'], $row['description'], $row['prix'], $row['_id']);;
+            $produit = new Produit($row['nom'], $row['description'], $row['quantite'], $row['prix'], $row['_id']);;
             $produits[] = $produit;
         }
 
@@ -35,36 +35,48 @@ class ProduitRepository {
             return null;
         }
 
-        $produit = new Produit($result['_id'], $result['nom'], $result['description'], $result['prix']);
+        $produit = new Produit($result['nom'], $result['description'], $result['quantite'], $result['prix'], $result['_id']);
         return $produit;
     }
 
     public function create(Produit $produit): bool {
         
         $id = new MongoDB\BSON\ObjectId();
-        $result = $this->collection->insertOne([
-            '_id' => $id,
-            'nom' => $produit->getNom(),
-            'description' => $produit->getDescription(),
-            'prix' => $produit->getPrix()
-        ]);
+        try {
+            $result = $this->collection->insertOne([
+                '_id' => $id,
+                'nom' => $produit->getNom(),
+                'description' => $produit->getDescription(),
+                'quantite' => $produit->getQuantite(),
+                'prix' => $produit->getPrix()
+            ]);
+        } catch (MongoDB\Driver\Exception\BulkWriteException $e) {
+            error_log("L'insertion MongoDB a échoué: " . $e->getMessage());
+            return false;
+        }
 
         $produit->setId((string) $id);
-
         return $result->isAcknowledged();
     }
 
     public function update(Produit $produit): bool {
-        $result = $this->collection->updateOne(
-            [ '_id' => new MongoDB\BSON\ObjectId($produit->getId()) ],
-            [ '$set' => 
-                [
-                'nom' => $produit->getNom(),
-                'description' => $produit->getDescription(),
-                'prix' => $produit->getPrix()
+        try {
+            $result = $this->collection->updateOne(
+                [ '_id' => new MongoDB\BSON\ObjectId($produit->getId()) ],
+                [ '$set' => 
+                    [
+                    'nom' => $produit->getNom(),
+                    'description' => $produit->getDescription(),
+                    'quantite' => $produit->getQuantite(),
+                    'prix' => $produit->getPrix()
+                    ]
                 ]
-            ]
-    );
+            );
+        } catch (MongoDB\Driver\Exception\BulkWriteException $e) {
+            error_log("L'insertion MongoDB a échoué: " . $e->getMessage());
+            return false;
+        }
+
         return $result->isAcknowledged() && $result->getModifiedCount() > 0;
     }
 

@@ -1,0 +1,39 @@
+<?php require_once __DIR__ . '/templates/header.php'; ?>
+
+    <script src="./assets/scripts/produitform.js" defer></script>
+    <div class="mx-auto w-full max-w-6xl p-5 bg-yellow-200 rounded-2xl shadow-md">
+        <h1 class="text-3xl font-bold text-center">Modifier</h1>
+    </div>
+
+    <form class="flex flex-col items-center mx-auto w-full max-w-6xl p-5 gap-2 bg-yellow-200 rounded-2xl shadow-md" id="formProduit" action="?action=update" method="POST">
+        <input type="hidden" name="id" value="<?= $produit->getId() ?>">
+        <div class="flex justify-center text-center p-3 gap-5 w-full max-w-6xl h-18">
+            <label class="flex justify-center items-center w-full h-full bg-yellow-400 p-2 shadow-md rounded-lg font-bold max-w-[200px]" for="nom">Nom:</label>
+            <input class="w-full h-full bg-gray-50 p-2 rounded-lg shadow-md" value="<?= $produit->getNom() ?>" type="text" id="nom" name="nom">
+        </div>
+        <div class="text-red-500 font-bold" id="error-nom"></div>
+
+        <div class="flex justify-center text-center p-3 gap-5 w-full max-w-6xl h-18">
+            <label class="flex justify-center items-center w-full h-full bg-yellow-400 p-2 shadow-md rounded-lg font-bold max-w-[200px]" for="description">Description:</label>
+            <input class="w-full h-full bg-gray-50 p-2 rounded-lg shadow-md" value="<?= $produit->getDescription() ?>" type="text" id="description" name="description">
+        </div>
+        <div class="text-red-500 font-bold" id="error-description"></div>
+
+        <div class="flex justify-center text-center p-3 gap-5 w-full max-w-6xl h-18">
+            <label class="flex justify-center items-center w-full h-full bg-yellow-400 p-2 shadow-md rounded-lg font-bold max-w-[200px]" for="quantite">Quantité:</label>
+            <input class="w-full h-full bg-gray-50 p-2 rounded-lg shadow-md" value="<?= $produit->getQuantite() ?>" type="number" id="quantite" name="quantite">
+        </div>
+        <div class="text-red-500 font-bold" id="error-quantite"></div>
+
+        <div class="flex justify-center text-center p-3 gap-5 w-full max-w-6xl h-18">
+            <label class="flex justify-center items-center w-full h-full bg-yellow-400 p-2 shadow-md rounded-lg font-bold max-w-[200px]" for="prix">Prix:</label>
+            <input class="w-full h-full bg-gray-50 p-2 rounded-lg shadow-md" value="<?= $produit->getPrix() ?>" type="number" step="0.01" id="prix" name="prix">
+        </div>
+        <div class="text-red-500 font-bold" id="error-prix"></div>
+
+        <button class="flex justify-center items-center w-full h-full bg-yellow-400 p-2 shadow-md rounded-lg font-bold max-w-[200px]" type="submit">Mettre à jour</button>
+    </form>
+    
+    <a href="?action=home" class="mx-auto flex justify-center items-center w-full h-full bg-yellow-400 p-2 shadow-md rounded-lg font-bold max-w-[300px]">Retourner à la liste des produits</a>
+
+<?php require_once __DIR__ . '/templates/footer.php';

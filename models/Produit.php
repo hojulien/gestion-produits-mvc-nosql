@@ -6,11 +6,13 @@ class Produit {
     private ?string $id;
     private string $nom;
     private string $description;
+    private int $quantite;
     private float $prix;
 
-    public function __construct(string $nom, string $desc, float $prix, ?string $id = null) {
+    public function __construct(string $nom, string $desc, int $quantite, float $prix, ?string $id = null) {
         $this->setNom($nom);
         $this->setDescription($desc);
+        $this->setQuantite($quantite);
         $this->setPrix($prix);
         $this->setId($id);
     }
@@ -29,6 +31,10 @@ class Produit {
         return $this->description;
     }
 
+    public function getQuantite(): int {
+        return $this->quantite;
+    }
+
     public function getPrix(): float {
         return $this->prix;
     }
@@ -45,6 +51,10 @@ class Produit {
 
     public function setDescription(string $desc): void {
         $this->description = htmlspecialchars($desc);
+    }
+
+    public function setQuantite(int $quantite): void {
+        $this->quantite = $quantite;
     }
 
     public function setPrix(float $prix): void {

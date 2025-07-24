@@ -10,8 +10,9 @@
         <title>Gestion de produits</title>
     </head>
     <body>
-        <header class="flex justify-start items-center p-6 bg-green-300 shadow-xl">
-            <h1 class="text-3xl font-bold">test</h1>
+        <header class="flex justify-between items-center px-5 bg-green-300 shadow-xl">
+            <h1 class="text-3xl h-full p-4 font-bold"><a href="?action=home">test</a></h1>
+            <a class="text-xl h-full p-4 font-bold rounded-lg hover:bg-green-400" href="?action=create">Ajouter un produit</a>
         </header>
         <main>
             <section class="min-h-screen mx-auto flex flex-col p-7 gap-7 bg-yellow-100">
