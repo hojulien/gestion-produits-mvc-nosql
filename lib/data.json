@@ -1,0 +1,2 @@
+{"_id":{"$oid":"6881f054d01b74b659ed7a30"},"nom":"Ordinateur portable","description":"Un ordinateur portable pratique pour vos tâches, même en déplacement.","prix":599.99}
+{"_id":{"$oid":"6881f0a1d01b74b659ed7a31"},"nom":"Batterie portable","description":"Une batterie portable qui vous dépannera au bon moment. Compatible QuickCharge.","prix":39.99}
