@@ -5,6 +5,8 @@
         <h1 class="text-3xl font-bold text-center">Modifier</h1>
     </div>
 
+    <!-- htmlspecialchars est utilisé ici pour éviter les injections XSS et non dans le modèle (causerait des problèmes d'affichage) -->
+
     <form class="flex flex-col items-center mx-auto w-full max-w-6xl p-5 gap-2 bg-yellow-200 rounded-2xl shadow-md" id="formProduit" action="?action=update" method="POST">
         <input type="hidden" name="id" value="<?= $produit->getId() ?>">
         <div class="flex p-3 gap-5 w-full h-16">
