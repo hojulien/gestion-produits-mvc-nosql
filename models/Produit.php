@@ -42,15 +42,15 @@ class Produit {
     // SETTERS
 
     public function setId(?string $id): void {
-        $this->id = htmlspecialchars($id);
+        $this->id = $id;
     }
 
     public function setNom(string $nom): void {
-        $this->nom = htmlspecialchars($nom);
+        $this->nom = $nom;
     }
 
     public function setDescription(string $desc): void {
-        $this->description = htmlspecialchars($desc);
+        $this->description = $desc;
     }
 
     public function setQuantite(int $quantite): void {
