@@ -33,6 +33,6 @@
         </div>
     </div>
     
-    <a href="?action=home" class="mx-auto flex justify-center items-center w-full h-full bg-yellow-400 p-2 shadow-md rounded-lg font-bold">Retourner à la liste des produits</a>
+    <a href="?action=home" class="mx-auto flex justify-center items-center w-full h-full max-w-6xl bg-yellow-400 p-2 shadow-md rounded-lg font-bold">Retourner à la liste des produits</a>
 
 <?php require_once __DIR__ . '/templates/header.php';

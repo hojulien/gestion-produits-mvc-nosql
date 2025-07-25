@@ -36,6 +36,6 @@
         <button class="flex justify-center items-center w-full bg-yellow-400 p-2 shadow-md rounded-lg font-bold max-w-[200px]" type="submit">Mettre à jour</button>
     </form>
     
-    <a href="?action=home" class="mx-auto flex justify-center items-center w-full h-full bg-yellow-400 p-2 shadow-md rounded-lg font-bold max-w-[300px]">Retourner à la liste des produits</a>
+    <a href="?action=home" class="mx-auto flex justify-center items-center w-full h-full max-w-6xl bg-yellow-400 p-2 shadow-md rounded-lg font-bold">Retourner à la liste des produits</a>
 
 <?php require_once __DIR__ . '/templates/footer.php';
